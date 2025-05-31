@@ -27,5 +27,67 @@
     --status-green: #67E2AE;
     --status-red: #EA5555;
     --status-orange: #F3BA00;
+}
+
+/* Base Styles: Resetting defaults and applying global styles */
+* {
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin: 0; /* Remove default outer margins */
+    padding: 0; /* Remove default inner padding */
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif; /* Apply Google Font */
+    background-color: var(--light-bg); /* Set background from CSS variable */
+    color: var(--light-text); /* Set text color from CSS variable */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme changes */
+}
+ 
+/* Utility class to hide elements */
+.hidden-toggle {
+    display: none;
+}
+
+/* Typography Styles: Specific font styling for various elements */
+.main-header h2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    color: var(--light-text); /* Color for "Launch Career" title */
+}
+
+.task-card {
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: 700;
+    color: var(--light-text);
+}
+
+.board-list li .board-link {
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: 700;
+}
+
+.column-title {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 700;
+    letter-spacing: 2.4px; /* Apply letter spacing */
+    color: var(--light-column-title); /* Color for TODO, DOING, DONE titles */
 
 }
+
+ 
+.all-boards h3 {
+    text-transform: uppercase; /* Convert text to uppercase */
+    margin-bottom: 19px;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 700;
+    letter-spacing: 2.4px; /* Apply letter spacing */
+    color: var(--light-secondary-text);
+    padding-left: 24px; /* Align with board items */
+
+}
+
