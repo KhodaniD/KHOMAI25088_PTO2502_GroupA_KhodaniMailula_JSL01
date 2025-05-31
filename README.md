@@ -10,7 +10,9 @@
 
 ## Project Description
 
-This project implements a basic Kanban board web application, designed to help users visualize and manage their workflow. It features a **responsive layout** that adapts gracefully to both desktop and mobile screens. The board displays tasks organized into "TODO," "DOING," and "DONE" columns, providing a clear overview of progress. The current version focuses purely on the structural and visual presentation of a static Kanban board, showcasing a **desktop sidebar for navigation** and a streamlined mobile layout.
+This project implements a basic Kanban board web application, designed to help users visualize and manage their workflow. It features a **responsive layout** that adapts gracefully to both desktop and mobile screens. The board displays tasks organized into "TODO," "DOING," and "DONE" columns, providing a clear overview of progress. 
+
+The current version focuses purely on the structural and visual presentation of a static Kanban board, showcasing a **desktop sidebar for navigation** and a streamlined mobile layout.
 
 ---
 

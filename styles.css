@@ -87,20 +87,16 @@ body {
     letter-spacing: 2.4px; 
     color: var(--light-secondary-text);
     padding-left: 24px; 
-
 }
 
 /* Layout: Overall structure of the Kanban board */
-
 .kanban-wrapper {
     display: flex; /* Use flexbox for main layout */
     min-height: 100vh; /* Ensure wrapper takes at least full viewport height */
     overflow: hidden; /* Hide overflowing content */
     position: relative;
-
 }
 
- 
 /* Sidebar: Styling for the desktop navigation sidebar */
 .sidebar {
     width: 280px;
@@ -111,12 +107,9 @@ body {
     flex-direction: column; /* Stack content vertically */
     flex-shrink: 0; /* Prevent sidebar from shrinking */
     transition: transform 0.3s ease, width 0.3s ease, padding 0.3s ease; /* Smooth transitions */
-
 }
 
- 
 /* Logo: Styling for the main logo in the sidebar */
-
 .logo {
     font-size: 24px;
     font-weight: 700;
@@ -159,15 +152,10 @@ body {
     width: calc(100% - 24px); 
 }
 
- 
-
 .board-list li.active .board-link {
     background-color: var(--light-board-active); 
     color: var(--light-button-text); 
 }
-
-
-
 
 /* Main Content Area: Styles for the primary content section */
 .main-content {
@@ -220,7 +208,6 @@ body {
 #sidebarToggleMobile:checked ~ .kanban-wrapper .mobile-sidebar {
     left: 0; /* Slide sidebar into view */
     display: flex; /* Make it visible */
-
 }
  
 #sidebarToggleMobile:checked ~ .kanban-wrapper .mobile-sidebar-overlay {
@@ -280,8 +267,6 @@ body {
     flex-direction: column; /* Stack tasks vertically */
     gap: 20px; 
 }
-
- 
 
 /* Task Card: Styling for individual draggable task items */
 .task-card {
