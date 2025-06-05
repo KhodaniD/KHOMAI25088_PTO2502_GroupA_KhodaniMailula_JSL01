@@ -1,23 +1,24 @@
 /* CSS Variables: Define color palette and other reusable values */
 
 :root {
+
     /* Light Theme Colors */
-    --light-bg: #F4F7FA; 
-    --light-sidebar-bg: #FFFFFF; 
+    --light-bg:#F4F7FD;
+    --light-sidebar-bg: #FFFFFF;
     --light-text: #000112;
-    --light-secondary-text: #828FA3; 
-    --light-card-bg: #FFFFFF; 
-    --light-board-active: #635FC7; 
-    --light-board-hover-bg: #E9EFFA; 
+    --light-secondary-text: #828FA3;
+    --light-card-bg: #FFFFFF;
+    --light-board-active: #635FC7;
+    --light-board-hover-bg: #E9EFFA;
     --light-button-primary-bg: #635FC7;
-    --light-button-primary-hover: #A8A4FF; 
-    --light-button-secondary-bg: #E9EFFA; 
-    --light-button-secondary-hover: #D8D7FA; 
-    --light-button-destructive-bg: #EA5555; 
-    --light-button-destructive-hover: #FF9898; 
-    --light-button-text: #FFFFFF; 
+    --light-button-primary-hover: #A8A4FF;
+    --light-button-secondary-bg: #E9EFFA;
+    --light-button-secondary-hover: #D8D7FA;
+    --light-button-destructive-bg: #EA5555;
+    --light-button-destructive-hover: #FF9898;
+    --light-button-text: #FFFFFF;
     --light-column-title: #828FA3;
-    --border-color: #E4E5E9; 
+    --border-color: #E4E5E9;
     --light-placeholder-text: rgba(0, 1, 18, 0.25); /* Placeholder text color */
     --light-box-shadow: rgba(54, 78, 126, 0.101543); /* Box shadow color */
 
@@ -30,19 +31,22 @@
 }
 
 /* Base Styles: Resetting defaults and applying global styles */
+
 * {
     box-sizing: border-box;
-    margin: 0; 
-    padding: 0; 
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif; 
-    background-color: var(--light-bg); 
-    color: var(--light-text); 
-    transition: background-color 0.3s ease, color 0.3s ease; 
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
- 
+
 /* Utility class to hide elements */
 .hidden-toggle {
     display: none;
@@ -53,7 +57,7 @@ body {
     font-weight: 700;
     font-size: 24px;
     line-height: 100%;
-    color: var(--light-text); 
+    color: var(--light-text);
 }
 
 .task-card {
@@ -63,30 +67,36 @@ body {
     color: var(--light-text);
 }
 
+/* Kanban Board Styles: Specific styles for the Kanban board layout and elements */
 .board-list li .board-link {
     font-size: 15px;
     line-height: 19px;
     font-weight: 700;
 }
 
+/* Kanban Column Titles: Specific styles for column titles in the Kanban board */
 .column-title {
     font-size: 12px;
     line-height: 15px;
     font-weight: 700;
-    letter-spacing: 2.4px; 
+    letter-spacing: 2.4px;
     color: var(--light-column-title); /* Color for TODO, DOING, DONE titles */
-
+    display: flex;
+    align-items: center; /* Ensure vertical alignment */
+    gap: 8px; /* Add some space between the dot and the text */
+    margin-bottom: 10px; /* Reduce margin to bring closer to cards */
 }
 
+/* All Boards Section: Styles for the section displaying all boards */
 .all-boards h3 {
     text-transform: uppercase; /* Convert text to uppercase */
     margin-bottom: 19px;
     font-size: 12px;
     line-height: 15px;
     font-weight: 700;
-    letter-spacing: 2.4px; 
+    letter-spacing: 2.4px;
     color: var(--light-secondary-text);
-    padding-left: 24px; 
+    padding-left: 24px;
 }
 
 /* Layout: Overall structure of the Kanban board */
@@ -116,8 +126,8 @@ body {
     color: var(--light-text);
     margin-bottom: 30px;
     display: flex;
-    align-items: center; 
-    padding-left: 24px;   
+    align-items: center;
+    padding-left: 24px;
 }
 
 .logo-icon {
@@ -130,61 +140,73 @@ body {
 
 /* Board List: Styling for the list of Kanban boards */
 .board-list {
-    list-style: none; 
+    list-style: none;
     margin-bottom: 24px;
 }
 
 .board-item {
     position: relative;
-    padding-left: 24px; 
+    padding-left: 24px;
 }
 
 .board-item .board-link {
     display: flex;
-    align-items: center; 
-    padding: 15px 24px; 
+    align-items: center;
+    padding: 15px 24px;
     border-radius: 0 100px 100px 0; /* Rounded right corners */
-    margin-bottom: 8px; 
+    margin-bottom: 8px;
     cursor: pointer; /* Indicate clickable element */
     color: var(--light-secondary-text);
-    text-decoration: none; 
-    transition: background-color 0.3s ease, color 0.3s ease; 
-    width: calc(100% - 24px); 
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: calc(100% - 24px);
 }
 
 .board-list li.active .board-link {
-    background-color: var(--light-board-active); 
-    color: var(--light-button-text); 
+    background-color: var(--light-board-active);
+    color: var(--light-button-text);
 }
 
 /* Main Content Area: Styles for the primary content section */
 .main-content {
     flex-grow: 1; /* Allows main content to take up remaining space */
-    padding: 23px 24px;
+    padding: 0px 24px 23px 0px; /* Adjusted left padding to 0px */
     display: flex;
-    flex-direction: column; /* Stack header and board vertically */
-    transition: margin-left 0.3s ease, width 0.3s ease; /* Transitions for sidebar toggle effect */
+    flex-direction: column; 
+    transition: margin-left 0.3s ease, width 0.3s ease; 
+    overflow-x: hidden; 
+    width: 1440px;
+    height: 1024px;
+    top: 771px;
+    left: 2015px;
 }
 
 /* Main Header: Styling for the top section of the main content */
 .main-header {
     display: flex;
     justify-content: space-between; /* Distribute items horizontally */
-    align-items: center; /* Vertically align items */
+    align-items: center; 
     margin-bottom: 24px;
-    width: 100%;
+    width: 1440px;
+    background-color: var(--light-sidebar-bg); 
 }
 
 /* Desktop Header Adjustments: Media query for larger screens */
 @media (min-width: 769px) {
-    .main-header .mobile-logo {
-        display: none; /* Hide mobile logo on desktop */
+   .main-header .mobile-logo {
+        display: none;
     }
 
     .main-header h2 {
-        display: block; /* Ensure desktop board title is visible */
+        display: block;
     }
 
+    /* Apply desktop specific dimensions */
+    .main-header {
+        height: 97px; /* Fixed height for desktop */
+        padding: 0px 32px; /* Padding for desktop header */
+        position: relative;
+    }
 }
 
 /* Mobile Sidebar: Styling for the sidebar that appears on mobile */
@@ -200,27 +222,32 @@ body {
     flex-direction: column;
     justify-content: space-between;
     z-index: 1001; /* Ensure it's above other content */
-    transition: left 0.3s ease-in-out; /* Smooth slide-in/out effect */
+    transition: left 0.3s ease-in-out; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
+
+ 
 
 /* Show mobile sidebar and overlay when #sidebarToggleMobile is checked */
 #sidebarToggleMobile:checked ~ .kanban-wrapper .mobile-sidebar {
     left: 0; /* Slide sidebar into view */
     display: flex; /* Make it visible */
 }
- 
+
 #sidebarToggleMobile:checked ~ .kanban-wrapper .mobile-sidebar-overlay {
     display: block; /* Make overlay visible */
 }
 
 /* Kanban Board Area: Styling for the task columns container */
 .kanban-board {
-    display: grid; /* Use CSS Grid for columns */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
-    gap: 24px; /* Space between columns */
-    overflow-x: auto; /* Enable horizontal scrolling if columns exceed viewport width */
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 280px;
+    gap: 24px;
+    overflow-x: auto;
     padding-bottom: 0;
+    padding-left: 24px;
+    padding-right: 0;
 }
 
 /* Kanban Column: Styling for individual columns (TODO, DOING, DONE) */
@@ -231,12 +258,6 @@ body {
     box-shadow: none;
 }
 
-.column-title {
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center; /* Vertically align title text and status dot */
-}
-
 /* Status Dot: Adds a colored circle next to column titles */
 .column-title::before {
     content: '';
@@ -244,38 +265,51 @@ body {
     height: 15px;
     border-radius: 50%; /* Makes it a circle */
     display: inline-block;
-    margin-right: 12px;
     flex-shrink: 0; /* Prevent the dot from shrinking */
+    vertical-align: middle; /* Align the dot vertically */
 }
 
 /* Specific colors for each column's status dot */
 .column-title.todo::before {
     background-color: var(--status-blue);
+    margin-right: 12px; /* Add space between the dot and the text */
 }
 
 .column-title.doing::before {
     background-color: var(--status-purple);
+    margin-right: 12px; /* Add space between the dot and the text */
 }
 
 .column-title.done::before {
     background-color: var(--status-green);
+    margin-right: 12px; /* Add space between the dot and the text */
 }
 
 /* Task List: Container for individual task cards within a column */
 .task-list {
     display: flex;
     flex-direction: column; /* Stack tasks vertically */
-    gap: 20px; 
+    gap: 20px;
+    padding-top: 10px; /* Add space above the task list */
 }
+
+ 
 
 /* Task Card: Styling for individual draggable task items */
 .task-card {
     background-color: var(--light-card-bg);
-    padding: 23px 16px;
+    padding: 16px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px var(--light-box-shadow);
+    box-shadow: 0px 4px 6px 0px #364E7E1A;
     cursor: grab; /* Indicate draggable */
     position: relative;
+    width: 280px;
+    height: 60px;
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
     transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -283,35 +317,116 @@ body {
     opacity: 0.75; /* Reduce opacity on hover */
 }
 
-/* Responsive Design - Mobile Adjustments: Media query for smaller screens */
-@media (max-width: 768px) {
+/* iPad Mini Specific Styles */
+@media only screen
+  and (min-width: 768px)
+  and (max-width: 780px) { /* Adjusted max-width to better target iPad Mini */
+
     .sidebar {
-        display: none; /* Hide desktop sidebar on mobile */
+        display: none; /* Hide desktop sidebar */
+    }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
     }
 
     .main-header {
-        margin-bottom: 0; /* Adjust header margin for mobile */
-        padding: 16px; /* Add padding to header */
-        background-color: var(--light-sidebar-bg); /* Match sidebar background */
-        border-bottom: 1px solid var(--border-color); /* Add a subtle border */
-        position: sticky; /* Keep header at top when scrolling columns */
-        top: 0;
-        z-index: 10;
+        display: flex; /* Ensure header is displayed */
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
     }
 
-    /* Hide desktop board title on mobile */
     .main-header h2 {
-        display: none;
+        display: none; /* Hide desktop header */
     }
 
-    /* Mobile Header Container: Flexbox to arrange mobile logo and potential burger menu */
     .mobile-header-container {
-        display: flex;
+        display: flex; /* Show mobile header */
         justify-content: space-between;
         align-items: center;
         width: 100%;
     }
 
+    /* Force Mobile Logo Visibility */
+    .mobile-logo {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--light-text);
+        margin-bottom: 0;
+        white-space: nowrap;
+    }
+
+   .mobile-logo .logo-icon {
+        margin-right: 10px;
+    }
+
+   .kanban-board {
+        display: flex;
+        flex-direction: column; /* Stack columns vertically on mobile */
+        width: 100%;
+        padding: 24px 16px; /* Padding for the board itself on mobile */
+    }
+
+    .kanban-column {
+        width: 100%; /* Ensure columns take full width on mobile */
+    }
+
+    .task-card {
+        width: 100%;
+    }
+}
+
+/* Responsive Design - Mobile Adjustments: Media query for smaller screens */
+@media (max-width: 767px) {
+    .sidebar {
+        display: none; /* Hide desktop sidebar on mobile */
+    }
+    .main-content {
+        width: 100%;
+        height: auto; /* Changed from fixed height to auto */
+        min-height: calc(100vh - 70px);
+        top: auto;
+        left: auto;
+        padding-bottom: 20px;
+        flex-grow: 1; /* Allow content to fill available space */
+    }
+
+    .task-card {
+        width: 100%;
+        height: 60px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px 0px #364E7E1A;
+        padding: 16px;
+    }
+
+    .main-header {
+        margin-bottom: 0;
+        padding: 16px;
+        background-color: var(--light-sidebar-bg);
+        border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    /* Show Kanban heading on mobile */
+    .main-header h2 {
+        display: block;
+    }
+
+    /* Mobile Header Container: Styling for the header container on mobile */
+    .mobile-header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+        width: 100%;
+    }
     /* Mobile Logo: Styling for the Kanban title next to the logo icon on mobile */
     .mobile-logo {
         display: flex;
@@ -320,7 +435,7 @@ body {
         font-weight: 700;
         color: var(--light-text);
         margin-bottom: 0;
-        white-space: nowrap; 
+        white-space: nowrap;
     }
 
     .mobile-logo .logo-icon {
@@ -329,7 +444,9 @@ body {
 
     .kanban-board {
         grid-template-columns: 1fr; /* Stack columns vertically on mobile */
-        padding: 24px 16px; 
+        padding: 24px 16px; /* Padding for the board itself on mobile */
+        grid-auto-flow: unset; /* Reset for mobile */
+        grid-auto-columns: unset; /* Reset for mobile */
     }
 
     .kanban-column {
